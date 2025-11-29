@@ -17,13 +17,42 @@ int main() {
 	}
     //Populating values
     string num;
-    while (file >> num) {
+    while (getline(file, num)) {
         tree.insertNode(num);
-        cout << num << endl;
     };
     file.close();
 
-    tree.displayPostOrder();
+    int choice = 0;
+    while (choice != 5) {
+        cout << "[1] Insert code\n[2] Delete code\n[3] Search code\n[4] Display data\n[5] Exit" << endl;
+        cin >> choice;
+        while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5) {
+            cout << "Choose between 1-5" << endl;
+            cin >> choice;
+        }
+
+        string value;
+        if (choice == 1) {
+            cout << "Insert value: ";
+            cin >> value;
+            tree.insertNode(value);
+
+        } else if (choice == 2) {
+            cout << "Deletion value: ";
+            cin >> value;
+            tree.remove(value);
+            
+        } else if (choice == 3) {
+            cout << "Search value: ";
+            cin >> value;
+            bool found = tree.searchNode(value);
+            if (found) cout << "Found" << endl;
+            else cout << "Not Found" << endl;
+        } else if (choice == 4) {
+            tree.displayPreOrder();
+        } 
+        cout << endl;
+    }
     
     return 0;
 }
