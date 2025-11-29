@@ -1,3 +1,5 @@
+// COMSC-210 | Lab 36 | Fahad Fawad Ahmad
+// IDE used: Visual Studio
 #include <iostream>
 #include <fstream>
 #include "IntBinaryTree.h"
@@ -5,7 +7,6 @@ using namespace std;
 
 int main() {
     IntBinaryTree tree;
-    cout << "z " << endl; 
 
     //FIle Opening
     ifstream file;
@@ -22,9 +23,7 @@ int main() {
     };
     file.close();
 
-    tree.displayInOrder();
     tree.displayPostOrder();
-    tree.displayPreOrder();
     
     return 0;
 }
