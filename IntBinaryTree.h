@@ -4,7 +4,6 @@
 
 // Implementation file for the IntBinaryTree class
 #include <iostream>
-#include <string>
 using namespace std;
 
 // The IntBinaryTree class manages a binary tree of integers.
@@ -12,7 +11,7 @@ class IntBinaryTree {
 private:
    // TreeNode is a private structure for IntBinaryTree nodes.
    struct TreeNode {
-      int value;         // The value in the node
+      string value;         // The value in the node
       TreeNode *left;    // Pointer to left child node
       TreeNode *right;   // Pointer to right child node
    };
@@ -65,11 +64,10 @@ void IntBinaryTree::insert(TreeNode *&nodePtr, TreeNode *&newNode) {
 // and passes it to the insert function.                  
 void IntBinaryTree::insertNode(string num) {
    TreeNode *newNode;      // Pointer to a new node.
-   int num2 = stoi(num);
 
    // Create a new node and store num in it.
    newNode = new TreeNode;
-   newNode->value = num2;
+   newNode->value = num;
    newNode->left = newNode->right = nullptr;
    
    // Insert the node.
@@ -93,12 +91,11 @@ void IntBinaryTree::destroySubTree(TreeNode *nodePtr) {
 // Otherwise, it returns false.                    
 bool IntBinaryTree::searchNode(string num) {
    TreeNode *nodePtr = root;
-   int num2 = stoi(num);
 
    while (nodePtr)    {
-      if (nodePtr->value == num2)
+      if (nodePtr->value == num)
          return true;
-      else if (num2 < nodePtr->value)
+      else if (num < nodePtr->value)
          nodePtr = nodePtr->left;
       else
          nodePtr = nodePtr->right;
@@ -115,11 +112,9 @@ void IntBinaryTree::remove(string num) {
 // deleteNode deletes the node whose value 
 // member is the same as num.              
 void IntBinaryTree::deleteNode(string num, TreeNode *&nodePtr) {
-   int num2 = stoi(num);
-
-   if (num2 < nodePtr->value)
+   if (num < nodePtr->value)
       deleteNode(num, nodePtr->left);
-   else if (num2 > nodePtr->value)
+   else if (num > nodePtr->value)
       deleteNode(num, nodePtr->right);
    else
       makeDeletion(nodePtr);
