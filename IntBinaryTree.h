@@ -2,6 +2,11 @@
 #ifndef INTBINARYTREE_H
 #define INTBINARYTREE_H
 
+// Implementation file for the IntBinaryTree class
+#include <iostream>
+#include <string>
+using namespace std;
+
 // The IntBinaryTree class manages a binary tree of integers.
 class IntBinaryTree {
 private:
@@ -42,10 +47,7 @@ public:
    void displayPostOrder() const   {  displayPostOrder(root); }
 };
 
-// Implementation file for the IntBinaryTree class
-#include <iostream>
 #include "IntBinaryTree.h"
-using namespace std;
 
 // insert accepts a TreeNode pointer and a pointer to a node.
 // The function inserts the node into the tree pointed to by 
@@ -86,7 +88,6 @@ void IntBinaryTree::destroySubTree(TreeNode *nodePtr) {
    }
 }
    
-
 // searchNode determines if a value is present in  
 // the tree. If so, the function returns true.     
 // Otherwise, it returns false.                    
@@ -123,7 +124,6 @@ void IntBinaryTree::deleteNode(string num, TreeNode *&nodePtr) {
    else
       makeDeletion(nodePtr);
 }
-
 
 // makeDeletion takes a reference to a pointer to the node 
 // that is to be deleted. The node is removed and the      
